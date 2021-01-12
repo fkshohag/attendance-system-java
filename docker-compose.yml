@@ -1,0 +1,32 @@
+version: "3.5"
+services:
+  db:
+    image: mysql:8.0
+    container_name: attendance_mysql
+    ports:
+      - 1106:3306
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - attnet
+    volumes:
+      - database:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=attendance
+      - MYSQL_ROOT_PASSWORD=root@shohag
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=attendance@shohag
+
+  db_client:
+    image: adminer
+    container_name: attendance_adminer
+    ports:
+      - 1103:8080
+    networks:
+      - attnet
+
+networks:
+  attnet:
+    driver: bridge
+
+volumes:
+  database:
