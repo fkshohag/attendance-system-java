@@ -1,6 +1,6 @@
 package Sidebar;
 
-import Classes.Teacher;
+import Classes.User;
 import Login.LoginModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -61,7 +61,7 @@ public class SidebarController implements Initializable {
         buttons.add(about);
         buttons.add(settings);
 
-        Teacher teacher = LoginModel.getLogged(); // get logged in teacher from login model class
+        User user = (User) LoginModel.getLogged(); // get logged in teacher from login model class
         logout.setFocusTraversable(false);
         dashboard.setStyle("-fx-background-color: #2980B9");
         // set the dashboard as default view when user logs in
@@ -70,13 +70,8 @@ public class SidebarController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String name = teacher.getName().split(" ")[0]; // get only the first word of the name
-        // set prefix based on gender.
-        if (teacher.getGender().equals("Male")) {
-            UserName.setText("MR. " + name.toUpperCase());
-        } else {
-            UserName.setText("MS. " + name.toUpperCase());
-        }
+        String name = user.getFirstName() + user.getLastName(); // get only the first word of the name
+        UserName.setText(name.toUpperCase());
     }
 
     @FXML

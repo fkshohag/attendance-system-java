@@ -1,6 +1,6 @@
 package Dashboard;
 
-import Classes.Teacher;
+import Classes.User;
 import Login.LoginModel;
 import dbConnection.Connect;
 import javafx.fxml.FXML;
@@ -35,7 +35,7 @@ public class DashboardController implements Initializable {
     private Label barred_num;
 
     // get logged in teacher
-    private Teacher logged = LoginModel.getLogged();
+    private User logged =  LoginModel.getLogged();
     private Connection conn = Connect.getConnect(); // get connection to database
 
     @Override

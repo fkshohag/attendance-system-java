@@ -1,7 +1,7 @@
 package Attendance;
 
 import Classes.Student;
-import Classes.Teacher;
+import Classes.User;
 import Login.LoginModel;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
@@ -59,8 +59,9 @@ public class AttendanceController implements Initializable {
     private JFXTextField searchFiled;
 
     // get logged in teacher
-    private Teacher logged = LoginModel.getLogged();
+    private User logged =  LoginModel.getLogged();
 
+    // an observable list of students
     // an observable list of students
     private ObservableList<Student> students = FXCollections.observableArrayList();
 
@@ -99,7 +100,7 @@ public class AttendanceController implements Initializable {
     }
 
     private static void updateAtten(Student stud) {
-        Teacher logged  = LoginModel.getLogged();
+        User logged  =  LoginModel.getLogged();
         String query = "update '" + logged.getID() + "' set present = ? where id = ?"; // sql query
         try {
             checkConn(); // check connection

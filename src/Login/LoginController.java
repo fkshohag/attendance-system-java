@@ -2,7 +2,6 @@ package Login;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
@@ -30,6 +29,9 @@ public class LoginController implements Initializable {
     private JFXTextField id;
 
     @FXML
+    private JFXTextField email;
+
+    @FXML
     private JFXPasswordField pass;
 
     @FXML
@@ -41,9 +43,9 @@ public class LoginController implements Initializable {
 
     // handle login button click event
     @FXML
-    private void dataCheck() throws IOException, SQLException {
+    private void login() throws IOException, SQLException {
         // validation
-        if (model.isCorrect(id.getText(), pass.getText())) {
+        if (model.isCorrect(email.getText(), pass.getText())) {
             // switch to the home scene
             System.out.println("Welcome back fam!!"); // some background action.
 //            Operations.loadPref(); // load settings
@@ -53,12 +55,12 @@ public class LoginController implements Initializable {
             Scene home = new Scene(homeParent);
             //This line gets the Stage information
             Stage window = (Stage) logBtn.getScene().getWindow();
-            window.setTitle("Attendance System");
+            window.setTitle("Class And Attendance Monitoring System");
             window.setScene(home);
             window.show();
         } else {
             // this else statement doesn't work anymore because of the setLogged function in LoginModel class
-            System.out.println("Nah Not today ma dude");
+            System.out.println("You are unauthorized person!");
             // display the wrong information text in red if data doesn't match available one.
             id.focusedProperty().addListener((observableValue, oldValue, newValue) -> {
                 if (!newValue) {
@@ -74,29 +76,26 @@ public class LoginController implements Initializable {
     @FXML
     public void HandleEnter(KeyEvent event) throws IOException, SQLException {
         // make sure the button is enabled first before doing the action
-        if (!logBtn.isDisabled()) if (event.getCode().toString().equals("ENTER")) dataCheck();
+        if (!logBtn.isDisabled()) if (event.getCode().toString().equals("ENTER")) login();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // disable login button if either text fields is empty (boolean binding)
-        BooleanBinding booleanBind = Bindings.and(id.textProperty().isEmpty(), pass.textProperty().isEmpty());
+        BooleanBinding booleanBind = Bindings.and(email.textProperty().isEmpty(), pass.textProperty().isEmpty());
         logBtn.disableProperty().bind(booleanBind);
 
         // validators to make sure id field is only numbers and not empty and password filed is not empty.
-        NumberValidator numberValidator = new NumberValidator();
         RequiredFieldValidator fieldValidate = new RequiredFieldValidator();
         RequiredFieldValidator passValidate = new RequiredFieldValidator();
-        id.getValidators().add(fieldValidate);
-        id.getValidators().add(numberValidator);
+        email.getValidators().add(fieldValidate);
         pass.getValidators().add(passValidate);
-        numberValidator.setMessage("Please enter a number 1-9");
-        fieldValidate.setMessage(numberValidator.getMessage());
+        fieldValidate.setMessage("Please enter your email");
         passValidate.setMessage("Please enter your password");
-        id.focusedProperty().addListener((observableValue, oldValue, newValue) -> {
+        email.focusedProperty().addListener((observableValue, oldValue, newValue) -> {
             wrongData.setVisible(false); // hide the wrong information text when the user focuses on one of the text fields again
             if (!newValue) {
-                id.validate();
+                email.validate();
             }
         });
         pass.focusedProperty().addListener((observableValue, oldValue, newValue) -> {

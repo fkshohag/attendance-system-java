@@ -1,7 +1,7 @@
 package dbConnection;
 
 import Classes.Student;
-import Classes.Teacher;
+import Classes.User;
 import Login.LoginModel;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -47,7 +47,7 @@ public class Operations {
 
     private static void FilterClass(TableView<Student> list_table, ObservableList<Student> students,
                                     JFXComboBox<String> subjs, String diff) throws SQLException {
-        Teacher logged = LoginModel.getLogged();
+        User logged =  LoginModel.getLogged();
         list_table.setItems(students); // surpass the error when the observable list being used is the filtered one
         list_table.getItems().clear(); // clear table content before adding them again
         String selectedItem;
@@ -70,7 +70,7 @@ public class Operations {
         list_table.getItems().clear(); // clear table content before adding them again
         try {
             checkConn(); // check connection
-            Teacher logged = LoginModel.getLogged();
+            User logged =  LoginModel.getLogged();
             String query = "select * from '" + logged.getID() + "'";
             ResultSet rs = Objects.requireNonNull(conns).prepareStatement(query).executeQuery();
             while (rs.next()) {
@@ -103,7 +103,7 @@ public class Operations {
     }
 
     public static void DropFilter(JFXComboBox source, JFXComboBox<String> section, JFXComboBox<String> subjs,
-                                  TableView<Student> list_table, ObservableList<Student> students, Teacher logged) throws SQLException {
+                                  TableView<Student> list_table, ObservableList<Student> students, User logged) throws SQLException {
         if (source.getId().equals("subjs")) {
             section.getItems().clear();
             section.getSelectionModel().clearSelection();

@@ -1,6 +1,6 @@
 package AboutLecturer;
 
-import Classes.Teacher;
+import Classes.User;
 import Login.LoginModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,7 +39,7 @@ public class AboutLecturerController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Teacher teacher = LoginModel.getLogged(); // get logged in teacher from login model class
+        User teacher =  LoginModel.getLogged(); // get logged in teacher from login model class
 
         // set the about info to that
         name.setText(teacher.getName());
@@ -51,7 +51,6 @@ public class AboutLecturerController implements Initializable {
         for (String name: subj.keySet()){
             subjects.setText(subjects.getText() + name + ", ");
         }
-        exp.setText(teacher.getXP());
         number.setText(String.valueOf(teacher.getPhone()));
 
         Image male = new Image("resources/male.png");
@@ -62,6 +61,5 @@ public class AboutLecturerController implements Initializable {
         } else avatar.setImage(male);
 
     }
-
 
 }

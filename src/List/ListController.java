@@ -1,7 +1,7 @@
 package List;
 
 import Classes.Student;
-import Classes.Teacher;
+import Classes.User;
 import Login.LoginModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -24,7 +24,10 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
 import static dbConnection.Operations.*;
 
@@ -86,7 +89,7 @@ public class ListController implements Initializable {
     private ObservableList<Student> students = FXCollections.observableArrayList();
 
     // get logged in teacher
-    private Teacher logged = LoginModel.getLogged();
+    private User logged =  LoginModel.getLogged();
     // get connection
     private Connection conns = Connect.getConnect();
 

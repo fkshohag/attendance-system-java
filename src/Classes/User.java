@@ -1,8 +1,8 @@
 package Classes;
 
-public class Teacher extends Person {
+public class User extends Person {
 
-    public Teacher(int ID, String firstName, String lastName, String email, String phone, String gender) {
+    public User(int ID, String firstName, String lastName, String email, String phone, String gender) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;

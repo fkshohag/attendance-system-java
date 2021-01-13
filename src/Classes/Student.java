@@ -7,15 +7,15 @@ import java.util.Map;
 public class Student extends Person {
     private String absences; // number of times student was absent
     private String excuse;
+    private String name;
     private CheckBox present = new CheckBox();
     private String bar_status;
 
     // a constructor for the students list page
-    public Student(int ID, String name, String gender, String mail, String absences, String bar_status,
+    public Student(int ID, String firstName, String lastName, String mail, String absences, String bar_status,
                    Map<String, String[]> subjects, Boolean present, String excuse) {
-        this.name = name;
+        this.name = firstName + lastName;
         this.ID = ID;
-        this.gender = gender;
         this.email = mail;
         this.absences = absences;
         this.bar_status = bar_status;

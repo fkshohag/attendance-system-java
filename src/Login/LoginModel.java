@@ -1,35 +1,34 @@
 package Login;
 
-import Classes.Teacher;
+import Classes.User;
 import dbConnection.Connect;
-import dbConnection.Operations;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Objects;
 
 public class LoginModel {
-    private static Teacher logged; // new teacher to store the logged one in
+    private static User logged; // new teacher to store the logged one in
     // get connection
     private Connection con = Connect.getConnect();
 
-    public static Teacher getLogged() {
+    public static User getLogged() {
         return logged;
     }
 
     private static void setLogged(ResultSet set) throws SQLException {
         // store the logged in user details in an object for later use
 
-        logged = new Teacher(set.getString("name"), set.getString("pass"),
-                set.getInt("id"), set.getString("gender"), set.getString("email"),
-                Operations.parseSubjs(set), set.getString("exp"), set.getLong("phone"));
+        logged = new User(set.getInt("id"), set.getString("first_name"),
+                set.getString("last_name"), set.getString("email"), set.getString("phone"),
+                set.getString("gender"));
     }
 
 
     // check login details
-    boolean isCorrect(String User, String Pass) throws SQLException {
+    boolean isCorrect(String email, String pass) throws SQLException {
 
         // if connection is closed get it again
         if (con.isClosed()) {
@@ -37,10 +36,10 @@ public class LoginModel {
         }
         PreparedStatement statement;
         ResultSet set;
-        String query = "select * from Teachers where id = ? and pass = ?";
+        String query = "select * from users where email = ? and password = ?";
         statement = Objects.requireNonNull(con).prepareStatement(query);
-        statement.setString(1, User);
-        statement.setString(2, Pass);
+        statement.setString(1, email);
+        statement.setString(2, pass);
         set = statement.executeQuery();
         if (set.next()) { // only store the logged in user if its correct
             setLogged(set);

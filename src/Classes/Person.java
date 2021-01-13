@@ -3,24 +3,34 @@ package Classes;
 import java.util.HashMap;
 import java.util.Map;
 
-// i dont think this needs any comments
 public class Person {
-    String name;
     int ID;
-    String gender;
+    String firstName;
+    String lastName;
     String email;
-    long phone;
+    String phone;
+    String name;
+    String gender;
+
     Map<String, String[]> subjects = new HashMap<>();
 
     Person() {
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public  void  setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getID() {
@@ -31,12 +41,12 @@ public class Person {
         this.ID = ID;
     }
 
-    public String getGender() {
-        return gender;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -47,15 +57,19 @@ public class Person {
         this.email = email;
     }
 
-    public long getPhone() {
-        return phone;
-    }
-
-    public void setPhone(long phone) {
-        this.phone = phone;
-    }
-
     public Map<String, String[]> getSubjects() {
         return subjects;
+    }
+
+    public String getName() {
+        return this.getFirstName() + this.getLastName();
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
