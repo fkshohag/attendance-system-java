@@ -11,33 +11,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AboutAppController implements Initializable {
-    @FXML
-    private Hyperlink jfx;
 
     @FXML
-    private Hyperlink suan;
+    private Hyperlink shohag;
 
-    @FXML
-    private Hyperlink fawesome;
-
-    @FXML
-    private Hyperlink cfx;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        final String[] URLs = {"https://github.com/Blacksuan19", "https://github.com/jfoenixadmin/JFoenix",
-                "https://bitbucket.org/Jerady/fontawesomefx", "https://github.com/controlsfx/controlsfx"};
+        final String[] URLs = {"https://github.com/fazlulkabir94"};
 
         // disable the stupid focus hint
-        suan.setFocusTraversable(false);
-        jfx.setFocusTraversable(false);
-        fawesome.setFocusTraversable(false);
-        cfx.setFocusTraversable(false);
-
-        suan.setOnAction(e -> LoadURL(URLs[0]));
-        jfx.setOnAction(e -> LoadURL(URLs[1]));
-        fawesome.setOnAction(e -> LoadURL(URLs[2]));
-        cfx.setOnAction(e -> LoadURL(URLs[3]));
+        shohag.setFocusTraversable(false);
+        shohag.setOnAction(e -> LoadURL(URLs[0]));
     }
 
     private void LoadURL(String URL) {

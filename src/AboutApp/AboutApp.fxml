@@ -22,27 +22,7 @@
                 <Font name="SF Compact Display Regular" size="18.0"/>
             </font>
         </Label>
-        <Hyperlink fx:id="suan" text="Blacksuan19">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Hyperlink>
-        <Label alignment="CENTER" contentDisplay="CENTER" text="Used Libraries">
-            <font>
-                <Font name="System Bold" size="18.0"/>
-            </font>
-        </Label>
-        <Hyperlink fx:id="jfx" text="JFoenix">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Hyperlink>
-        <Hyperlink fx:id="fawesome" text="Font Awesome">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Hyperlink>
-        <Hyperlink fx:id="cfx" text="ControlsFX">
+        <Hyperlink fx:id="shohag" text="Md. Shohag">
             <font>
                 <Font size="18.0"/>
             </font>
