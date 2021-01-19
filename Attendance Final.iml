@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/annotations-16.0.2.jar!/" />
@@ -16,9 +16,11 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="fontawesomefx-8.9" level="project" />
-    <orderEntry type="library" name="jfoenix-8.0.7" level="project" />
-    <orderEntry type="library" name="sqlite-jdbc-3.23.1" level="project" />
-    <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" exported="" name="fontawesomefx-8.9" level="project" />
+    <orderEntry type="library" exported="" name="jfoenix-8.0.7" level="project" />
+    <orderEntry type="library" exported="" name="sqlite-jdbc-3.23.1" level="project" />
+    <orderEntry type="library" exported="" name="com.calendarfx:view:8.5.0" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.23" level="project" />
   </component>
 </module>
