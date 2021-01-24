@@ -5,8 +5,11 @@ CREATE TABLE `users` (
     `gender` VARCHAR(30),
 	`email` VARCHAR(70),
 	`password` VARCHAR(100),
-	`role_id` INT,
+	`role_id` BIGINT unsigned,
 	`phone` VARCHAR(40),
 	UNIQUE KEY `users_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
+
+ALTER TABLE `users`
+ADD FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION
