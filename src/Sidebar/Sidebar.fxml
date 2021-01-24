@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="homePane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #95afc0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sidebar.SidebarController">
+<BorderPane fx:id="homePane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sidebar.SidebarController">
     <left>
         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="670.0" prefWidth="200.0" spacing="30.0" style="-fx-background-color: #303952;">
             <HBox fx:id="dashboard" layoutX="10.0" layoutY="181.0" onMouseClicked="#changeView" prefHeight="40.0" prefWidth="200.0" spacing="15.0" styleClass="sidebar-button" stylesheets="@../StyleCheet/style.css">
@@ -44,7 +44,7 @@
                             <Insets left="20.0" />
                         </HBox.margin>
                     </OctIconView>
-                    <Label alignment="CENTER" contentDisplay="CENTER" text="Attendance" textFill="#dddbdb">
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Attendance Sheet" textFill="#dddbdb">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -67,7 +67,7 @@
                             <Insets left="20.0" />
                         </HBox.margin>
                     </OctIconView>
-                    <Label alignment="CENTER" contentDisplay="CENTER" text="List Students" textFill="#dddbdb">
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Class Loggin Form" textFill="#dddbdb">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -90,7 +90,7 @@
                             <Insets left="20.0" />
                         </HBox.margin>
                     </FontAwesomeIconView>
-                    <Label alignment="CENTER" contentDisplay="CENTER" text="About Lecturer" textFill="#dddbdb">
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Class Logs" textFill="#dddbdb">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -113,7 +113,7 @@
                             <Insets left="20.0" />
                         </HBox.margin>
                     </OctIconView>
-                    <Label alignment="CENTER" contentDisplay="CENTER" text="Settings" textFill="#dddbdb">
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Attendance Records" textFill="#dddbdb">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -149,23 +149,6 @@
                <Insets top="10.0" />
             </padding>
          </HBox>
-            <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
-                <children>
-                    <Label text="Copyright © 2018" textFill="#dbdbdb4c">
-                        <font>
-                            <Font name="SF Compact Display Regular" size="10.0" />
-                        </font>
-                    </Label>
-                    <Label prefHeight="12.0" prefWidth="82.0" text="  Blacksuan19" textFill="#dbdbdb4c">
-                        <font>
-                            <Font name="SF Compact Display Regular" size="10.0" />
-                        </font>
-                    </Label>
-                </children>
-                <VBox.margin>
-                    <Insets bottom="5.0" top="80.0" />
-                </VBox.margin>
-            </VBox>
             <BorderPane.margin>
                 <Insets />
             </BorderPane.margin>
