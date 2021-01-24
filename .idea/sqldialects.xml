@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/migrations/2_users.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/migrations/3_class_section.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/migrations/4_attendance.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/List/ListController.java" dialect="ClickHouse" />
     <file url="file://$PROJECT_DIR$/src/Login/LoginModel.java" dialect="ClickHouse" />
   </component>
