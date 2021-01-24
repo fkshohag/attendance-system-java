@@ -26,7 +26,7 @@
 .table-view {
     -fx-base: #95AFC0;
     -fx-control-inner-background: #95AFC0;
-    -fx-background-color: #95AFC0;
+    -fx-background-color: white;
     -fx-text-fill: white;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
