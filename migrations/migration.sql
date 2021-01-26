@@ -2,7 +2,7 @@ CREATE TABLE `roles` (
 	`id` BIGINT unsigned NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(40),
     `created_at` TIMESTAMP DEFAULT now(),
-    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
+    `updated_at` TIMESTAMP DEFAULT now() ON UPDATE now(),
 	UNIQUE KEY `roles_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -17,7 +17,7 @@ CREATE TABLE `users` (
 	`role_id` BIGINT unsigned,
 	`phone` VARCHAR(40),
     `created_at` TIMESTAMP DEFAULT now(),
-    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
+    `updated_at` TIMESTAMP DEFAULT now() ON UPDATE now(),
 	UNIQUE KEY `users_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -30,7 +30,7 @@ CREATE TABLE `sections` (
 	`name` VARCHAR(40),
     `description` VARCHAR(40),
     `created_at` TIMESTAMP DEFAULT now(),
-    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
+    `updated_at` TIMESTAMP DEFAULT now() ON UPDATE now(),
     UNIQUE KEY `sections_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -44,7 +44,7 @@ CREATE TABLE `attendances` (
 	`email` VARCHAR(50) NOT NULL,
     `created_by` BIGINT,
     `created_at` TIMESTAMP DEFAULT now(),
-    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
+    `updated_at` TIMESTAMP DEFAULT now() ON UPDATE now(),
     UNIQUE KEY `attendances_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -70,7 +70,7 @@ CREATE TABLE `class_logs` (
 	`link` VARCHAR(55),
 	`remark` text,
     `created_at` TIMESTAMP DEFAULT now(),
-    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
+    `updated_at` TIMESTAMP DEFAULT now() ON UPDATE now(),
     `created_by` BIGINT,
     `updated_by` BIGINT,
     UNIQUE KEY `class_logs_id` (`id`) USING BTREE,
