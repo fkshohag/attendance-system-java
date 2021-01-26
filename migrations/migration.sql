@@ -1,6 +1,8 @@
 CREATE TABLE `roles` (
 	`id` BIGINT unsigned NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(40),
+    `created_at` TIMESTAMP DEFAULT now(),
+    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
 	UNIQUE KEY `roles_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -14,6 +16,8 @@ CREATE TABLE `users` (
 	`password` VARCHAR(100),
 	`role_id` BIGINT unsigned,
 	`phone` VARCHAR(40),
+    `created_at` TIMESTAMP DEFAULT now(),
+    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
 	UNIQUE KEY `users_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -25,6 +29,8 @@ CREATE TABLE `sections` (
 	`id` BIGINT unsigned NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(40),
     `description` VARCHAR(40),
+    `created_at` TIMESTAMP DEFAULT now(),
+    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
     UNIQUE KEY `sections_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -36,7 +42,9 @@ CREATE TABLE `attendances` (
 	`student_name` VARCHAR(100),
 	`phone` VARCHAR(30) NULL,
 	`email` VARCHAR(50) NOT NULL,
-    `created_by` BIGINT unique,
+    `created_by` BIGINT,
+    `created_at` TIMESTAMP DEFAULT now(),
+    `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
     UNIQUE KEY `attendances_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -45,6 +53,8 @@ ALTER TABLE `attendances`
 ADD FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 ALTER TABLE `attendances`
 ADD FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `attendances`
+ADD FOREIGN KEY (`updated_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 CREATE TABLE `class_logs` (
 	`id` BIGINT unsigned NOT NULL AUTO_INCREMENT,
@@ -61,7 +71,8 @@ CREATE TABLE `class_logs` (
 	`remark` text,
     `created_at` TIMESTAMP DEFAULT now(),
     `updated_at` TIMESTAMP DEFAULT '0000-00-00 00:00:00' ON UPDATE now(),
-    `created_by` BIGINT unique,
+    `created_by` BIGINT,
+    `updated_by` BIGINT,
     UNIQUE KEY `class_logs_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
@@ -70,3 +81,5 @@ ALTER TABLE `class_logs`
 ADD FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 ALTER TABLE `class_logs`
 ADD FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `class_logs`
+ADD FOREIGN KEY (`updated_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
