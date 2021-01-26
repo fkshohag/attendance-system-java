@@ -29,11 +29,17 @@ CREATE TABLE `sections` (
 	`id` BIGINT unsigned NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(40),
     `description` VARCHAR(40),
+    `created_by` BIGINT unsigned,
+    `updated_by` BIGINT unsigned,
     `created_at` TIMESTAMP DEFAULT now(),
     `updated_at` TIMESTAMP DEFAULT now() ON UPDATE now(),
     UNIQUE KEY `sections_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
+ALTER TABLE `sections`
+    ADD FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `sections`
+    ADD FOREIGN KEY (`updated_by`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 CREATE TABLE `attendances` (
 	`id` BIGINT unsigned NOT NULL AUTO_INCREMENT,
@@ -42,7 +48,8 @@ CREATE TABLE `attendances` (
 	`student_name` VARCHAR(100),
 	`phone` VARCHAR(30) NULL,
 	`email` VARCHAR(50) NOT NULL,
-    `created_by` BIGINT,
+    `created_by` BIGINT unsigned,
+    `updated_by` BIGINT unsigned,
     `created_at` TIMESTAMP DEFAULT now(),
     `updated_at` TIMESTAMP DEFAULT now() ON UPDATE now(),
     UNIQUE KEY `attendances_id` (`id`) USING BTREE,
@@ -71,8 +78,8 @@ CREATE TABLE `class_logs` (
 	`remark` text,
     `created_at` TIMESTAMP DEFAULT now(),
     `updated_at` TIMESTAMP DEFAULT now() ON UPDATE now(),
-    `created_by` BIGINT,
-    `updated_by` BIGINT,
+    `created_by` BIGINT unsigned,
+    `updated_by` BIGINT unsigned,
     UNIQUE KEY `class_logs_id` (`id`) USING BTREE,
 	PRIMARY KEY (`id`)
 );
