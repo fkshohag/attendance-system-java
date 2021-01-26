@@ -1,3 +1,9 @@
+DROP TABLE IF EXISTS `sections`;
+DROP TABLE IF EXISTS `attendances`;
+DROP TABLE IF EXISTS `class_logs`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `roles`;
+
 CREATE TABLE `roles` (
 	`id` BIGINT unsigned NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(40),
