@@ -15,7 +15,7 @@
         <ImageView fitHeight="137.0" fitWidth="471.0" pickOnBounds="true" preserveRatio="true"
                    BorderPane.alignment="CENTER">
             <image>
-                <Image url="@../resources/login.png"/>
+                <Image url="@../resources/seu.png"/>
             </image>
             <BorderPane.margin>
                 <Insets/>
