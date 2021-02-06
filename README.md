@@ -16,6 +16,14 @@
 #### Database run in docker machine
 * docker-compose up --build
 ##### database external port: 1106
+##### database container env
+```
+environment:
+      - MYSQL_DATABASE=attendance
+      - MYSQL_ROOT_PASSWORD=root@shohag
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=attendance@shohag
+```
 
 * Database Migration -> /migrations
 * All DDL /migrations/1_migrations.sql
