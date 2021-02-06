@@ -8,6 +8,7 @@
 * Docker if you want's to start database within docker machine
 * java JDK "Corretto-1.8"
 * mysql-connector-java-8.0.23
+* controlsfx-8.40.13
 
 
 
@@ -31,7 +32,11 @@ environment:
 * All Project query /migrations/3_migrations.sql
 
 
-
+### Folder structure
+* /lib all related library
+* /migrations database migration 
+* /src project root
+* src/* Per module separate folder
 
 
 
