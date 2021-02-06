@@ -1,4 +1,4 @@
-# Class attendance and system monitoring
+# Class attendance and monitoring system
 
 ## Team MemberID
 ### Id: 2019000010038
