@@ -33,6 +33,7 @@ environment:
 
 
 ### Folder structure
+* Docker compose file for different service -> /docker-compose.yml
 * /lib all related library
 * /migrations database migration 
 * /src project root
