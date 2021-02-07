@@ -18,7 +18,7 @@ public class AboutAppController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        final String[] URLs = {"https://github.com/fazlulkabir94"};
+        final String[] URLs = {"https://github.com/shohag.fks"};
 
         // disable the stupid focus hint
         shohag.setFocusTraversable(false);
